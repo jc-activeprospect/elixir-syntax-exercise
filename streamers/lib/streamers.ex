@@ -1,8 +1,6 @@
 defmodule Streamers do
   @doc """
-  Find streaming index file
-
-
+  Find streaming index file in the given directory.
   """
 
   def find_index(directory) do
@@ -12,9 +10,10 @@ defmodule Streamers do
 
   defp is_index?(file) do
     File.open! file, fn
-      "EXTM3u\n#EXT-X-STREAM-INF" <> _ -> true
+      "#EXTM3U\n#EXT-X-STREAM-INF" <> _ -> true
       contents ->
-      false
+        IO.puts contents # <-- PID
+        false
     end
   end
 end
