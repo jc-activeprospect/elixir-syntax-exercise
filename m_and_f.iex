@@ -1,0 +1,7 @@
+defmodule Maths do
+  def multi(a, b) do
+    a * b
+  end
+end
+
+IO.puts(Maths.multi(6,5))
